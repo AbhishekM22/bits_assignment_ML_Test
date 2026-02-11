@@ -13,20 +13,20 @@ The goal of this project is to classify the price range of mobile phones based o
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| Logistic Regression | 0.96 | 0.99 | 0.96 | 0.96 | 0.96 | 0.94 |
-| Decision Tree | 0.83 | 0.89 | 0.83 | 0.83 | 0.83 | 0.77 |
-| kNN | 0.92 | 0.97 | 0.92 | 0.92 | 0.92 | 0.89 |
-| Naive Bayes | 0.80 | 0.95 | 0.80 | 0.80 | 0.79 | 0.73 |
-| Random Forest | 0.88 | 0.98 | 0.88 | 0.88 | 0.88 | 0.84 |
-| XGBoost | 0.90 | 0.99 | 0.90 | 0.90 | 0.90 | 0.87 |
+| Logistic Regression | 0.72 | 0.92 | 0.72 | 0.72 | 0.72 | 0.63 |
+| Decision Tree | 0.96 | 0.98 | 0.96 | 0.96 | 0.96 | 0.95 |
+| kNN | 0.95 | 1.00 | 0.95 | 0.95 | 0.95 | 0.93 |
+| Naive Bayes | 0.82 | 0.96 | 0.82 | 0.82 | 0.82| 0.76 |
+| Random Forest | 0.97 | 1.00 | 0.97 | 0.97 | 0.97 | 0.96 |
+| XGBoost | 0.98 | 1.00 | 0.98 | 0.98 | 0.98 | 0.97 |
 
 ## d. Performance Observations
 
 | ML Model Name | Observation about model performance |
 | :--- | :--- |
-| Logistic Regression | Highest accuracy; the relationship between specs like RAM and Price is highly linear. |
-| Decision Tree | Faster training but lower accuracy than ensembles; prone to slight overfitting. |
-| kNN | Strong performance; mobile phones with similar specs naturally fall into the same price clusters. |
-| Naive Bayes | Lowest performance; likely due to the assumption that all features (like 3G/4G) are independent. |
-| Random Forest | Very robust; handles the 20 features well without much tuning. |
-| XGBoost | Excellent performance and high AUC score; very reliable for this tabular data. |
+| Logistic Regression | Achieved the lowest accuracy (0.72). This suggests the relationship between features and price categories is non-linear, making a simple linear classifier less effective than tree-based models. |
+| Decision Tree | Strong performance with 0.96 accuracy. It effectively captured the decision boundaries of the dataset, though it is slightly outperformed by ensemble methods that reduce variance. |
+| kNN | Excellent performance (0.95 accuracy) and a perfect AUC of 1.00. This indicates that mobile phones with similar hardware specifications cluster very tightly within their respective price ranges.. |
+| Naive Bayes | Moderate performance (0.82). While computationally fast, its assumption of feature independence likely hindered it since features like RAM and Battery are often correlated. |
+| Random Forest | Outstanding results with 0.97 accuracy. By averaging multiple decision trees, it achieved high stability and a perfect AUC score, handling the 20 features without overfitting. |
+| XGBoost | The best performing model (0.98 accuracy). Its gradient boosting approach minimized errors more effectively than any other model, making it the most reliable for this classification task. |

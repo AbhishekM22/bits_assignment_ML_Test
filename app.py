@@ -10,7 +10,7 @@ from sklearn.metrics import (
 )
 
 st.set_page_config(page_title="Mobile Price Classifier", layout="wide")
-st.title("📱 Mobile Price Classification App")
+st.title("Mobile Price Classification App")
 
 # Sidebar
 model_option = st.sidebar.selectbox(
@@ -18,7 +18,7 @@ model_option = st.sidebar.selectbox(
     ("logistic_regression", "decision_tree", "knn", "naive_bayes", "random_forest", "xgboost")
 )
 
-uploaded_file = st.file_uploader("Upload Test CSV", type="csv")
+uploaded_file = st.file_uploader("Upload the dataset in CSV format", type="csv")
 
 if uploaded_file is not None:
     test_data = pd.read_csv(uploaded_file)
@@ -49,7 +49,7 @@ if uploaded_file is not None:
         mcc = matthews_corrcoef(y_test, y_pred)
 
         # --- 2. DISPLAY METRICS IN COLUMNS ---
-        st.subheader(f"📊 6 Mandatory Metrics for {model_option}")
+        st.subheader(f"📊 Evaluation Metrics for {model_option}")
         col1, col2, col3 = st.columns(3)
         col4, col5, col6 = st.columns(3)
 
